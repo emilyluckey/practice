@@ -1,0 +1,12 @@
+"0","library(stringr)"
+"0","str_sub(5,6)"
+"1","[1]"
+"1"," """""
+"1","
+"
+"0","read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv"")"
+"2","Parsed with column specification:
+cols(
+  ¾Ç¸¹ = col_integer()
+)
+"
