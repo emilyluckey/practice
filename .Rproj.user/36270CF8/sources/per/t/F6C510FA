@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539764625188.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F6C510FA",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1539764625188,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "F89D6B44",
+        "caption" : "iPeenData",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=iPeenData&cache_key=F89D6B44",
+        "displayedObservations" : 450,
+        "environment" : "",
+        "object" : "iPeenData",
+        "preview" : 0,
+        "totalObservations" : 450,
+        "variables" : 2
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -31,4 +31,8 @@ table(b)
 b
 ```
 
+```{r}
+library(googlesheets)
+gs_auth(new_user = TRUE)
+```
 
