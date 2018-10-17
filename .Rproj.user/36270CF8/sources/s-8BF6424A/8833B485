@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539763417293.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8833B485",
+    "lastKnownWriteTime" : 1539762967,
+    "last_content_update" : 1539763468179,
+    "path" : "~/GitHub/course-107-1-programming-for-data-science/Exercise1/Exercise1.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "20,12",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

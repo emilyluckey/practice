@@ -1,0 +1,12 @@
+
+
+```{r}
+a<-c("A,B","B, C")
+a
+str_split_fixed(a,",", n=3)->b
+str_c(b)->c
+c
+table(b)
+b
+```
+
