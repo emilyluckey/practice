@@ -56,6 +56,21 @@ rownames(classSurvey)
 (classSurvey$性別 == "男")
 (classSurvey$本學期學分數 > 20)
 which(classSurvey$性別 == "男" & classSurvey$本學期學分數>26)
-classSurvey[C(8,44),3]
+classSurvey[c(8,44),3]
+```
+
+```{r}
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+```
+
+```{r}
+which(student$身高 <= 170) -> 小個子
+which(student$身高 >= 180) -> 高個子
+which(student$身高 >=170 & student$身高 <= 180) -> 中等個子
 ```
 
