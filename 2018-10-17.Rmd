@@ -69,8 +69,41 @@ student %<>% mutate(
 ```
 
 ```{r}
-which(student$身高 <= 170) -> 小個子
-which(student$身高 >= 180) -> 高個子
-which(student$身高 >=170 & student$身高 <= 180) -> 中等個子
+which(student$身高 <= 170) -> little
+which(student$身高 >= 180) -> tall
+which(student$身高 >=170 & student$身高 <= 180) -> m
+little
+```
+
+```{r}
+student$新身高級距 <- student$身高級距
+levels(student$新身高級距) <- (0,160]
+```
+
+```{r}
+y <- gl(2, 4, 8)
+levels(y) <- c("low", "high")
+y
+```
+
+```{r}
+?dim
+x <- 1:12 ; dim(x) <- c(3,4)
+x
+```
+
+```{r}
+dim(classSurvey)
+nrow(classSurvey)
+ncol(classSurvey)
+as.character(classSurvey$學號)
+library(stringr)
+str_sub(classSurvey$學號,2,4) -> classSurvey$年級
+as.factor(classSurvey$年級) -> classSurvey$年級
+levels(classSurvey$年級) <- c("大四及以上","大三","大二","大一")
+```
+
+```{r}
+table(classSurvey$年級)
 ```
 
