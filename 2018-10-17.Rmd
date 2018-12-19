@@ -29,7 +29,7 @@ for(i in c(1:3867)) {
   a <- libraryData[which(libraryData$學號==student_i),]
   as.character(min(a$借閱時間)) -> answer[i]
   data.frame(
-    學號 = student,
+    學號 = student, 
     最早借閱時間 = answer
   ) -> b }
 ```
