@@ -9,35 +9,6 @@ libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data
 ```
 
 ```{r}
-as.factor(libraryData$書籍館藏地) %>%
-  levels -> storageLocations
-```
-
-```{r}
-libraryData %>%
-  mutate(
-    學院=as.factor(學院),
-    書籍館藏地=as.factor(書籍館藏地),
-    書籍類別=as.factor(書籍類別),
-    借閱時間=ymd_hms(借閱時間,tz="Asia/Taipei")
-  ) -> libraryData
-```
-
-```{r}
-max(libraryData$讀者借閱冊數)-> maxNumber
-min(libraryData$讀者借閱冊數)-> minNumber
-paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
-```
-
-```{r}
-minMaxFun <- function(x){
-  max(x)-> maxNumber
-  min(x)-> minNumber
-  paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
-}
-```
-
-```{r}
 levels(as.factor(libraryData$學號)) -> student
 answer <- vector("numeric",3867)
 for( i in c(1:3867)) {
@@ -49,7 +20,27 @@ which(answer == max(answer)) %>%
 ```
 
 ```{r}
-libraryData %>%
-  select(讀者借閱冊數,書籍出版日期) 
+library(dplyr) ; library(lubridate)
+levels(as.factor(libraryData$學號)) -> student
+ymd_hms(libraryData$借閱時間) -> libraryData$借閱時間
+answer <- vector("character",3867)
+for(i in c(1:3867)) {
+  student_i <- student[i]
+  a <- libraryData[which(libraryData$學號==student_i),]
+  as.character(min(a$借閱時間)) -> answer[i]
+  data.frame(
+    學號 = student,
+    最早借閱時間 = answer
+  ) -> b }
 ```
 
+```{r}
+library(dplyr);library(lubridate)
+levels(as.factor(libraryData$學號)) -> student
+ymd_hms(libraryData$借閱時間) -> libraryData$借閱時間
+answer <- vector("character",3867)
+for(i in c(1:3867)) {
+  student_i <- student[i]
+  a <- libraryData[which(libraryData$學號==student_i),]
+  min(a$借閱時間) -> answer[i]}
+```
