@@ -2,57 +2,26 @@
 title: '2018-12-12'
 output: html_document
 ---
+```{r}
+library(dplyr);library(readr)
+```
 
 ```{r}
 library(readr)
-libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv")
+library(tidyr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/libraryData2.csv")
+libraryData %>%
+  group_by(學院) %>%
+  nest(.key="各院借閱資料") ->
+  libraryDataNested
 ```
 
 ```{r}
-levels(as.factor(libraryData$學號)) -> student
-answer <- vector("numeric",3867)
-for( i in c(1:3867)) {
-student_i <- student[i]
-a <- libraryData[which(libraryData$學號 == student_i),]
-nrow(a) -> answer[i]}
-which(answer == max(answer)) %>%
-  student[.]
-```
+unique(libraryData$學號) -> a
+unique(libraryData$學年) -> b
 
-```{r}
-library(dplyr) ; library(lubridate)
-levels(as.factor(libraryData$學號)) -> student
-ymd_hms(libraryData$借閱時間) -> libraryData$借閱時間
-answer <- vector("character",3867)
-for(i in c(1:3867)) {
-  student_i <- student[i]
-  a <- libraryData[which(libraryData$學號==student_i),]
-  as.character(min(a$借閱時間)) -> answer[i]
-  data.frame(
-    學號 = student, 
-    最早借閱時間 = answer
-  ) -> b }
-```
-
-```{r}
-library(dplyr);library(lubridate)
-levels(as.factor(libraryData$學號)) -> student
-ymd_hms(libraryData$借閱時間) -> libraryData$借閱時間
-answer <- vector("character",3867)
-for(i in c(1:3867)) {
-  student_i <- student[i]
-  a <- libraryData[which(libraryData$學號==student_i),]
-  min(a$借閱時間) -> answer[i]}
-```
-
-```{r}
-data <- data.frame(year = rep(2016:2017,6),month = seq(1:12),sales=rep(c(10,20,30,40),3))
-planes <- group_by(data, year)
-delay <- summarise(planes,
-                   count = n(),                #个数
-                   max_mon = max(month),       #最大值
-                   min_mon = min(month),       #最小值
-                   avg_sales = mean(sales),    #平均值
-                   sum_sales = sum(sales))
+for (i in seq_along(b)) {
+  
+}
 ```
 
